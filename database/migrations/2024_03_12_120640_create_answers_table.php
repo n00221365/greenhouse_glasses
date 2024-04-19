@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->integer("questions_id");
-            $table->string("answer");
+            $table->integer("question_id");
+            $table->string("col1answer");
+            $table->string("col2answer");
+            $table->string("col3answer");
+            $table->string("col4answer");
+
             $table->integer("value");
 
 

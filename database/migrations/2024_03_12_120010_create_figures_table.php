@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notable_figures', function (Blueprint $table) {
+        Schema::create('figures', function (Blueprint $table) {
             $table->id();
             $table->string("firstName");
-            $table->string("firstName");
+            $table->string("lastName");
             $table->string("image")->default("x.jpg");
             $table->integer("score");
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notable_figures');
+        Schema::dropIfExists('figures');
     }
 };
