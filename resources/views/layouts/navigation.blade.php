@@ -17,11 +17,7 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('user.answers.index')" :active="request()->routeIs('answers')">
-                        {{ __('Answers') }}
-                    </x-nav-link>
-                </div>
+
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('user.answers.index')" :active="request()->routeIs('questions')">
@@ -29,11 +25,6 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('user.scores.index')" :active="request()->routeIs('scores')">
-                        {{ __('Scores') }}
-                    </x-nav-link>
-                </div>
 
 
             </div>

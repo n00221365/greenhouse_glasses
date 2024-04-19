@@ -50,7 +50,11 @@ class AnswerController extends Controller
 
         $rules = [ //decides how data has to be entered into the database. This is done to preserve the integrity of the table
             'question_id' => 'required|string|min:1|max:50',// has to be filled, a string, at least 1 character ans less than 50
-            'answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+            'col1answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+            'col2answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+            'col3answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+            'col4answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+
             'value' => 'required|integer|min:1|max:100',// has to be filled, a integer, at least 1 character ans less than 100
         ];
 
@@ -63,7 +67,11 @@ class AnswerController extends Controller
       
         $answer = new Answer; // when adding an entry to the database, all columns below must be present
         $answer->question_id = $request->question_id;    //searches for a title
-        $answer->answer = $request->answer;  //searches for the runtime
+        $answer->col1answer = $request->col1answer;  //searches for the runtime
+        $answer->col2answer = $request->col2answer;  //searches for the runtime
+        $answer->col3answer = $request->col3answer;  //searches for the runtime
+        $answer->col4answer = $request->col4answer;  //searches for the runtime
+
         $answer->value = $request->value; // searches for how many songs there are
 
 
@@ -106,17 +114,20 @@ class AnswerController extends Controller
        $answer = Answer::findOrFail($id);
        //validation rules
        $rules = [
-        'question_id' => 'required|string|min:1|max:50',// has to be filled, a string, at least 1 character ans less than 50
-        'answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
-        'value' => 'required|integer|min:1|max:100',// has to be filled, a integer, at least 1 character ans less than 100
+        'col1answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+        'col2answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+        'col3answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+        'col4answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
     
        ];
        $request->validate($rules);
 
        $answer = new Answer; // when adding an entry to the database, all columns below must be present
        $answer->question_id = $request->question_id;    //searches for a title
-       $answer->answer = $request->answer;  //searches for the runtime
-       $answer->value = $request->value; // searches for how many songs there are
+       $answer->col1answer = $request->col1answer;  //searches for the runtime
+       $answer->col2answer = $request->col2answer;  //searches for the runtime
+       $answer->col3answer = $request->col3answer;  //searches for the runtime
+       $answer->col4answer = $request->col4answer;  //searches for the runtime       $answer->value = $request->value; // searches for how many songs there are
 
 
 

@@ -47,7 +47,8 @@
         <tbody>
 
           
-            @forelse($answers as $col1answer)
+            {{-- @forelse($answers as $col1answer) --}}
+            @for($i = 0; $i<4; $i++)
 
 
             
@@ -57,47 +58,24 @@
                 </th>
 
                 <td class="px-6 py-4">
-                    {{ $col1answer->col1answer}}
+                    {{ $col1answer[$i]}}
                 </td>
-                @empty 
-                <h4>No Albums Found!</h4>
-                @endforelse
-
-
-
-
-
-                @forelse($answers as $col2answer)
                 <td class="px-6 py-4">
-                    {{ $col2answer->col2answer}}
+                    {{ $col2answer[$i]}}
                 </td>
-                @empty 
-                <h4>No Albums Found!</h4>
-                @endforelse
-
-
-
-
-                @forelse($answers as $col3answer)
-
                 <td class="px-6 py-4">
-                    {{ $col3answer->col3answer}}
+                    {{ $col3answer[$i]}}
                 </td>
-                @empty 
-                <h4>No Albums Found!</h4>
-                @endforelse
-
-
-
-                
-                @forelse($answers as $col4answer)
-
                 <td class="px-6 py-4">
-                    {{ $col4answer->col4answer}}
+                    {{ $col4answer[$i]}}
                 </td>
-                        @empty 
-        <h4>No Albums Found!</h4>
-                @endforelse
+                <h4>No Albums Found!</h4>
+                @endfor
+
+
+
+
+
 
 
             </tr>
