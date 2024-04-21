@@ -16,7 +16,7 @@ class AnswerSeeder extends Seeder
     {
         $answers1 = New Answer;
         $answers1->id = 1;
-        $answers1->question_id = 1;
+        $answers1->question_id = "How far would you typically drive in a week in km?";
         $answers1->col1answer = "0-10";
         $answers1->col2answer = "11-20";
         $answers1->col3answer = "21-30";
@@ -28,7 +28,7 @@ class AnswerSeeder extends Seeder
 
         $answers2 = New Answer;
         $answers2->id = 2;
-        $answers2->question_id = 1;
+        $answers2->question_id = "What form of transport would you use most often?";
         $answers2->col1answer = "Walk";
         $answers2->col2answer = "Cycle";
         $answers2->col3answer = "Public Transport";
@@ -39,7 +39,7 @@ class AnswerSeeder extends Seeder
 
         $answers3 = New Answer;
         $answers3->id = 3;
-        $answers3->question_id = 1;
+        $answers3->question_id = "How often do you recycle?";
         $answers3->col1answer = "Always";
         $answers3->col2answer = "Sometimes";
         $answers3->col3answer = "Rarely";
@@ -50,7 +50,7 @@ class AnswerSeeder extends Seeder
 
         $answers4 = New Answer;
         $answers4->id = 4;
-        $answers4->question_id = 1;
+        $answers4->question_id = "What type of fuel does your car consume?";
         $answers4->col1answer = "Diesel";
         $answers4->col2answer = "Unleaded";
         $answers4->col3answer = "Hybrid";

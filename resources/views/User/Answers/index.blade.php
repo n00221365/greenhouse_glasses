@@ -16,9 +16,9 @@
 <!-- Displays and adds the data into the index page of the website-->
 
     
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-green-400  ">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bg-green-400 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-green-400 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Question
@@ -47,50 +47,44 @@
         <tbody>
 
           
-            {{-- @forelse($answers as $col1answer) --}}
-            @for($i = 0; $i<4; $i++)
+            @forelse($answers as $answer)
+            {{-- @for($i = 0; $i<4; $i++) --}}
 
 
             
-            <tr class="bg-blue border-b dark:bg-gray-900 dark:border-gray-700">
+            <tr class="bg-blue border-b dark:bg-green-400  dark:border-gray-700">
                 <th scope="column" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
-                    {{ __('How far would you typically drive in a week?')}}
-                </th>
+                    {{ $answer->question_id}}                </th>
 
                 <td class="px-6 py-4">
-                    {{ $col1answer[$i]}}
+
+                    <label>
+                        <input type="checkbox" value="answer" name="answer"> {{ $answer->col1answer}}
+                    </label>
+                    
                 </td>
                 <td class="px-6 py-4">
-                    {{ $col2answer[$i]}}
-                </td>
+                    <label>
+                        <input type="checkbox" value="answer" name="answer"> {{ $answer->col2answer}}
+                    </label>                </td>
                 <td class="px-6 py-4">
-                    {{ $col3answer[$i]}}
-                </td>
+                    <label>
+                        <input type="checkbox" value="answer" name="answer"> {{ $answer->col3answer}}
+                    </label>                </td>
                 <td class="px-6 py-4">
-                    {{ $col4answer[$i]}}
-                </td>
-                <h4>No Albums Found!</h4>
-                @endfor
-
-
-
-
-
-
-
+                    <label>
+                        <input type="checkbox" value="answer" name="answer"> {{ $answer->col4answer}}
+                    </label>                </td>
             </tr>
-
-
-        
-   
-            
-        </tbody>
+            @empty 
+            <h4>no items found</h4>
+            @endforelse
+        </tbody>       
     </table>
+
+
 </div>
+<a href="" class="btn bg-green-100">Next Page -></a>
 
-</tbody>
-</table>
-
-{{ $answers->links() }}
 
 @endsection

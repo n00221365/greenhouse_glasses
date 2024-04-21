@@ -22,9 +22,8 @@ class AnswerController extends Controller
         $scores = Score::orderBy('created_at', 'desc')->paginate(4);
         
         // shows how many albums are displayed on each screen and in what order
-
-        dd($answers);
-        return view('User.answers.index', [
+    $answers = Answer::all();
+        return view('User.Answers.index', [
             'answers' => $answers
         ]);
 
@@ -47,38 +46,35 @@ class AnswerController extends Controller
 
 
         $rules = [ //decides how data has to be entered into the database. This is done to preserve the integrity of the table
-            'question_id' => 'required|string|min:1|max:50',// has to be filled, a string, at least 1 character ans less than 50
-            'col1answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
-            'col2answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
-            'col3answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
-            'col4answer' => 'required|string|min:1|max:100', // has to be filled, a string, at least 1 character ans less than 10
+            'question_id' => 'required|string|min:1|max:50',
+            'col1answer' => 'required|string|min:1|max:100',
+            'col2answer' => 'required|string|min:1|max:100',
+            'col3answer' => 'required|string|min:1|max:100',
+            'col4answer' => 'required|string|min:1|max:100',
 
-            'value' => 'required|integer|min:1|max:100',// has to be filled, a integer, at least 1 character ans less than 100
+            'value' => 'required|integer|min:1|max:100',
         ];
 
 
         /////
 
 
-        $request->validate($rules, $messages); // validates the rules and messages
+        $request->validate($rules, $messages); 
 
       
-        $answer = new Answer; // when adding an entry to the database, all columns below must be present
-        $answer->question_id = $request->question_id;    //searches for a title
-        $answer->col1answer = $request->col1answer;  //searches for the runtime
-        $answer->col2answer = $request->col2answer;  //searches for the runtime
-        $answer->col3answer = $request->col3answer;  //searches for the runtime
-        $answer->col4answer = $request->col4answer;  //searches for the runtime
+        $answer = new Answer; 
+        $answer->question_id = $request->question_id;    
+        $answer->col1answer = $request->col1answer; 
+        $answer->col2answer = $request->col2answer; 
+        $answer->col3answer = $request->col3answer; 
+        $answer->col4answer = $request->col4answer; 
 
-        $answer->value = $request->value; // searches for how many songs there are
+        $answer->value = $request->value; 
 
 
 
-        // this search is more complicated than the others. It is searching for an image, however, it
-        //has to convert the name of the image file in order to make it more easy to store. For this example
-        // the image is taken in, converted into the format of todays date, followed by the album title, then stored
 
-        $score->save();// pushed the data to the database
+        $score->save();
 
         return redirect()->route('User.answers.index')->with('status', 'Created a new answer!');// brings the user back to the index upon completing the form
 
